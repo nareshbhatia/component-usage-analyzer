@@ -1,0 +1,10 @@
+{
+  "repoPath": "./sample-repo",
+  "workspacePaths": ["apps", "packages", "lib/ui"],
+  "excludePaths": ["node_modules", "dist", "build"],
+  "fileExtensions": [".js", ".jsx", ".ts", ".tsx"],
+  "componentName": "ButtonDeprecated",
+  "jsonOutputPath": "./compu-results-button-deprecated.json",
+  "mdOutputPath": "./compu-results-button-deprecated.md",
+  "verbose": false
+}

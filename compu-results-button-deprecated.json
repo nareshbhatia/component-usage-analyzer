@@ -1,0 +1,189 @@
+{
+  "workspaces": [
+    {
+      "name": "apps",
+      "relativePath": "apps",
+      "packages": [
+        {
+          "name": "movie-magic-next",
+          "relativePath": "apps/movie-magic-next",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "ApplicationHeader.tsx",
+              "filePath": "apps/movie-magic-next/src/components/ApplicationHeader.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "index.tsx",
+              "filePath": "apps/movie-magic-next/src/pages/index.tsx",
+              "jsxElements": []
+            }
+          ]
+        },
+        {
+          "name": "movie-magic-vite",
+          "relativePath": "apps/movie-magic-vite",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "App.tsx",
+              "filePath": "apps/movie-magic-vite/src/App.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "ApplicationHeader.tsx",
+              "filePath": "apps/movie-magic-vite/src/components/ApplicationHeader.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "vite.config.d.ts",
+              "filePath": "apps/movie-magic-vite/vite.config.d.ts",
+              "jsxElements": []
+            },
+            {
+              "name": "vite.config.js",
+              "filePath": "apps/movie-magic-vite/vite.config.js",
+              "jsxElements": []
+            },
+            {
+              "name": "vite.config.ts",
+              "filePath": "apps/movie-magic-vite/vite.config.ts",
+              "jsxElements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "packages",
+      "relativePath": "packages",
+      "packages": [
+        {
+          "name": "filter-panel",
+          "relativePath": "packages/filter-panel",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "FilterPanel.tsx",
+              "filePath": "packages/filter-panel/src/FilterPanel.tsx",
+              "jsxElements": [
+                {
+                  "line": 98,
+                  "column": 11,
+                  "code": "<Button onClick={handleClear}>Clear</Button>"
+                },
+                {
+                  "line": 99,
+                  "column": 11,
+                  "code": "<Button onClick={handleApply}>Apply Filters</Button>"
+                }
+              ],
+              "importDeclaration": {
+                "line": 1,
+                "column": 1,
+                "code": "import { ButtonDeprecated as Button } from '@sample/ui';",
+                "alias": "Button"
+              }
+            },
+            {
+              "name": "index.d.ts",
+              "filePath": "packages/filter-panel/src/index.d.ts",
+              "jsxElements": []
+            },
+            {
+              "name": "index.js",
+              "filePath": "packages/filter-panel/src/index.js",
+              "jsxElements": []
+            },
+            {
+              "name": "index.ts",
+              "filePath": "packages/filter-panel/src/index.ts",
+              "jsxElements": []
+            }
+          ]
+        },
+        {
+          "name": "movie-list",
+          "relativePath": "packages/movie-list",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "MovieList.tsx",
+              "filePath": "packages/movie-list/src/MovieList.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "index.d.ts",
+              "filePath": "packages/movie-list/src/index.d.ts",
+              "jsxElements": []
+            },
+            {
+              "name": "index.js",
+              "filePath": "packages/movie-list/src/index.js",
+              "jsxElements": []
+            },
+            {
+              "name": "index.ts",
+              "filePath": "packages/movie-list/src/index.ts",
+              "jsxElements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ui",
+      "relativePath": "lib/ui",
+      "packages": [
+        {
+          "name": "atoms",
+          "relativePath": "lib/ui/atoms",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "Button.tsx",
+              "filePath": "lib/ui/atoms/src/Button.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "ButtonDeprecated.tsx",
+              "filePath": "lib/ui/atoms/src/ButtonDeprecated.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "index.d.ts",
+              "filePath": "lib/ui/atoms/src/index.d.ts",
+              "jsxElements": []
+            },
+            {
+              "name": "index.js",
+              "filePath": "lib/ui/atoms/src/index.js",
+              "jsxElements": []
+            },
+            {
+              "name": "index.ts",
+              "filePath": "lib/ui/atoms/src/index.ts",
+              "jsxElements": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "analysisSummary": {
+    "workspaceCount": 3,
+    "packageCount": 5,
+    "fileCount": 20,
+    "fileWithInstanceCount": 1,
+    "instanceCount": 2,
+    "averageInstancesPerFile": 2,
+    "importDeclarationCount": 1,
+    "importDeclarationWithAliasCount": 1
+  }
+}

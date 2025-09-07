@@ -1,0 +1,10 @@
+{
+  "repoPath": "./sample-repo",
+  "workspacePaths": ["apps", "packages", "lib/ui"],
+  "excludePaths": ["node_modules", "dist", "build"],
+  "fileExtensions": [".js", ".jsx", ".ts", ".tsx"],
+  "componentName": "Button",
+  "jsonOutputPath": "./compu-results-button.json",
+  "mdOutputPath": "./compu-results-button.md",
+  "verbose": false
+}
