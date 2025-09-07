@@ -7,6 +7,29 @@ Here's a sample report:
 
 ![Sample Report](assets/sample-report.png)
 
+## Features
+
+- **🔍 Comprehensive Component Search**: Find all instances of a specific
+  component across your entire codebase
+- **🏗️ Monorepo Support**: Designed to work with complex repository structures
+  including multiple workspaces and packages
+- **📊 Detailed Reporting**: Generate both JSON and Markdown reports with usage
+  statistics and file locations
+- **🎯 AST-Based Analysis**: Uses TypeScript Abstract Syntax Tree parsing for
+  accurate component detection
+- **⚡ Multi-Format Support**: Analyzes JavaScript, JSX, TypeScript, and TSX
+  files
+- **📈 Usage Statistics**: Provides summaries including total instances, files
+  affected, and average usage per file
+- **🚫 Smart Filtering**: Configurable exclusion of directories like
+  `node_modules`, `dist`, and `build`
+- **📋 Workspace Organization**: Groups results by workspace and package for
+  easy navigation
+- **🔧 Flexible Configuration**: JSON-based configuration for easy customization
+  and reuse
+- **💻 CLI Ready**: Simple command-line interface for integration into
+  development workflows
+
 ## Concepts
 
 Compu can be configured to support complex repository structures with packages
@@ -38,7 +61,7 @@ configuration file for the above structure:
   "workspacePaths": ["apps", "packages"],
   "excludePaths": ["node_modules", "dist", "build"],
   "fileExtensions": [".js", ".jsx", ".ts", ".tsx"],
-  "componentName": "ButtonDeprecated",
+  "componentName": "Button",
   "jsonOutputPath": "./compu-results.json",
   "mdOutputPath": "./compu-results.md",
   "verbose": false
@@ -69,7 +92,7 @@ npm install -g component-usage-analyzer
 Now open a shell and execute the following commands.
 
 ```shell
-# Change directory to you repository's root
+# Change directory to your repository's root
 cd ~/projects/movie-magic
 
 # Create a starter config file
