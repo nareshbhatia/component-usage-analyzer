@@ -2,7 +2,6 @@
   "name": "component-usage-analyzer",
   "description": "Analyze and report UI component usage across your code repository",
   "version": "0.0.1",
-  "private": true,
   "author": "Naresh Bhatia",
   "license": "MIT",
   "repository": {
