@@ -1,7 +1,7 @@
 {
   "name": "component-usage-analyzer",
   "description": "Analyze and report UI component usage across your code repository",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Naresh Bhatia",
   "license": "MIT",
   "repository": {
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "expand-tilde": "^2.0.2",
-    "ts-morph": "^26.0.0",
+    "ts-morph": "^27.0.0",
     "tslib": "2.8.1"
   },
   "devDependencies": {
