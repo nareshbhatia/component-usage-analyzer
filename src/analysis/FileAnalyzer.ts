@@ -58,7 +58,7 @@ export class FileAnalyzer {
     sourceFile: SourceFile,
   ): ImportDeclarationInfo | undefined {
     const importDeclarations = sourceFile.getImportDeclarations();
-    const component = this.config.component;
+    const { component } = this.config;
 
     for (const importDecl of importDeclarations) {
       const code: string = importDecl.getFullText().trim();
@@ -71,7 +71,7 @@ export class FileAnalyzer {
         sourceFile.getFilePath(),
       );
 
-      if (matchedModuleSpecifier) {
+      if (matchedModuleSpecifier !== undefined) {
         // Check default imports: import ComponentName from 'package'
         const defaultImport = importDecl.getDefaultImport();
         if (
@@ -176,13 +176,13 @@ export class FileAnalyzer {
           const pattern = configuredSpecifier
             .replace(/\*\*/g, '.*')
             .replace(/\*/g, '[^/]*');
-          return new RegExp(pattern + '$').test(resolvedPath);
+          return new RegExp(`${pattern}$`).test(resolvedPath);
         } catch {
           // If path resolution fails, fall back to direct pattern matching
           const pattern = configuredSpecifier
             .replace(/\*\*/g, '.*')
             .replace(/\*/g, '[^/]*');
-          return new RegExp('^' + pattern + '$').test(actualModuleSpecifier);
+          return new RegExp(`^${pattern}$`).test(actualModuleSpecifier);
         }
       }
 
@@ -190,7 +190,7 @@ export class FileAnalyzer {
       const pattern = configuredSpecifier
         .replace(/\*\*/g, '.*')
         .replace(/\*/g, '[^/]*');
-      return new RegExp('^' + pattern + '$').test(actualModuleSpecifier);
+      return new RegExp(`^${pattern}$`).test(actualModuleSpecifier);
     }
 
     // Regex pattern (if starts with ^)

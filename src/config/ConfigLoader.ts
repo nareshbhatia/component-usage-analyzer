@@ -88,7 +88,7 @@ export class ConfigLoader {
     }
 
     // Check that component is provided
-    if (!config.component) {
+    if (config.component === undefined || config.component === null) {
       errors.push('"component" must be provided');
     }
 
@@ -124,7 +124,7 @@ export class ConfigLoader {
     }
 
     // Validate component object
-    if (config.component) {
+    if (config.component !== undefined && config.component !== null) {
       if (!config.component.name || typeof config.component.name !== 'string') {
         errors.push('component.name must be a non-empty string');
       }

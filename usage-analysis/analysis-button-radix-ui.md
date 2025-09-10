@@ -1,6 +1,6 @@
 # Component Usage Analysis: Button
 
-**Generated:** 2025-09-10T04:43:05.469Z
+**Generated:** 2025-09-10T04:49:17.846Z
 
 ## Summary
 

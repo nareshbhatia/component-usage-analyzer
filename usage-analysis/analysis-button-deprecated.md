@@ -1,6 +1,6 @@
 # Component Usage Analysis: ButtonDeprecated
 
-**Generated:** 2025-09-10T04:43:04.940Z
+**Generated:** 2025-09-10T04:49:17.324Z
 
 ## Summary
 
