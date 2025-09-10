@@ -23,7 +23,7 @@ function main() {
     for (let i = 0; i < args.length; i++) {
       if (args[i].startsWith('--config=')) {
         [, configPath] = args[i].split('=');
-      } else if (args[i] === '--create-config-example') {
+      } else if (args[i] === '--create-config') {
         ConfigLoader.createExample();
         return;
       } else if (args[i] === '--help' || args[i] === '-h') {
@@ -55,7 +55,7 @@ function main() {
       const analysisSummary = calculateAnalysisSummary(workspaces);
       const { fileWithInstanceCount, instanceCount } = analysisSummary;
       console.log(
-        `\n📊 Found ${instanceCount} usages of '${config.componentName}' across ${fileWithInstanceCount} files.`,
+        `\n📊 Found ${instanceCount} usages of '${config.component.name}' across ${fileWithInstanceCount} files.`,
       );
 
       // Write results
@@ -66,7 +66,7 @@ function main() {
       if (error instanceof Error && error.message.includes('ENOENT')) {
         console.error(`❌ Config file not found: ${configPath}`);
         console.log('\n💡 Create an example config file with:');
-        console.log('   compu --create-config-example');
+        console.log('   compu --create-config');
       } else {
         console.error(
           `❌ Error: ${error instanceof Error ? error.message : String(error)}`,

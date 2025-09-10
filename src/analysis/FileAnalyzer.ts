@@ -36,7 +36,7 @@ export class FileAnalyzer {
       }
 
       // Import was found - determine the tag name to look for in JSX
-      const tagName = importDeclarationInfo.alias ?? this.config.componentName;
+      const tagName = importDeclarationInfo.alias ?? this.config.component.name;
 
       // 2. Find JSX elements with the correct tag name
       const jsxElements = this.findJsxElements(sourceFile, tagName);
@@ -58,55 +58,152 @@ export class FileAnalyzer {
     sourceFile: SourceFile,
   ): ImportDeclarationInfo | undefined {
     const importDeclarations = sourceFile.getImportDeclarations();
+    const component = this.config.component;
 
     for (const importDecl of importDeclarations) {
       const code: string = importDecl.getFullText().trim();
+      const moduleSpecifier = importDecl.getModuleSpecifierValue();
 
-      // Check default imports: import ComponentName from 'package'
-      const defaultImport = importDecl.getDefaultImport();
-      if (
-        defaultImport !== undefined &&
-        defaultImport.getText() === this.config.componentName
-      ) {
-        const lineNumber: number = importDecl.getStartLineNumber();
-        return {
-          line: lineNumber,
-          column:
-            sourceFile.getLengthFromLineStartAtPos(importDecl.getStart()) + 1,
-          code,
-        };
-      }
+      // Check if this import's module specifier matches any of the component's module specifiers
+      const matchedModuleSpecifier = this.findMatchingModuleSpecifier(
+        moduleSpecifier,
+        component.moduleSpecifiers,
+        sourceFile.getFilePath(),
+      );
 
-      // Check named imports: import { ComponentName } from 'package'
-      const namedImports = importDecl.getNamedImports();
-      for (const namedImport of namedImports) {
-        const importName = namedImport.getName();
-        const alias = namedImport.getAliasNode()?.getText();
-
-        if (importName === this.config.componentName) {
+      if (matchedModuleSpecifier) {
+        // Check default imports: import ComponentName from 'package'
+        const defaultImport = importDecl.getDefaultImport();
+        if (
+          defaultImport !== undefined &&
+          defaultImport.getText() === component.name
+        ) {
           const lineNumber: number = importDecl.getStartLineNumber();
           return {
             line: lineNumber,
             column:
               sourceFile.getLengthFromLineStartAtPos(importDecl.getStart()) + 1,
             code,
-            alias,
           };
         }
-      }
 
-      // Check namespace imports: import * as Namespace from 'package'
-      const namespaceImport = importDecl.getNamespaceImport();
-      if (namespaceImport !== undefined) {
-        /*
-         * For namespace imports, we can't determine if the component is used without analyzing the usage
-         * This would require more complex analysis of the namespace usage
-         * For now, we'll skip namespace imports
-         */
+        // Check named imports: import { ComponentName } from 'package'
+        const namedImports = importDecl.getNamedImports();
+        for (const namedImport of namedImports) {
+          const importName = namedImport.getName();
+          const alias = namedImport.getAliasNode()?.getText();
+
+          if (importName === component.name) {
+            const lineNumber: number = importDecl.getStartLineNumber();
+            return {
+              line: lineNumber,
+              column:
+                sourceFile.getLengthFromLineStartAtPos(importDecl.getStart()) +
+                1,
+              code,
+              alias,
+            };
+          }
+        }
+
+        // Check namespace imports: import * as Namespace from 'package'
+        const namespaceImport = importDecl.getNamespaceImport();
+        if (namespaceImport !== undefined) {
+          /*
+           * For namespace imports, we can't determine if the component is used without analyzing the usage
+           * This would require more complex analysis of the namespace usage
+           * For now, we'll skip namespace imports
+           */
+        }
       }
     }
 
     return undefined;
+  }
+
+  /**
+   * Finds a matching module specifier from the configured list
+   */
+  private findMatchingModuleSpecifier(
+    actualModuleSpecifier: string,
+    configuredSpecifiers: string[],
+    currentFilePath: string,
+  ): string | undefined {
+    for (const configuredSpecifier of configuredSpecifiers) {
+      if (
+        this.matchesModuleSpecifier(
+          actualModuleSpecifier,
+          configuredSpecifier,
+          currentFilePath,
+        )
+      ) {
+        return configuredSpecifier;
+      }
+    }
+    return undefined;
+  }
+
+  /**
+   * Checks if an actual module specifier matches a configured specifier (which may be a pattern)
+   */
+  private matchesModuleSpecifier(
+    actualModuleSpecifier: string,
+    configuredSpecifier: string,
+    currentFilePath: string,
+  ): boolean {
+    // Exact match
+    if (actualModuleSpecifier === configuredSpecifier) {
+      return true;
+    }
+
+    // Wildcard match (legacy support)
+    if (configuredSpecifier === '*') {
+      return true;
+    }
+
+    // Glob pattern matching
+    if (configuredSpecifier.includes('*')) {
+      // For relative imports, resolve the actual path and match against pattern
+      if (
+        actualModuleSpecifier.startsWith('./') ||
+        actualModuleSpecifier.startsWith('../')
+      ) {
+        try {
+          const resolvedPath = path.resolve(
+            path.dirname(currentFilePath),
+            actualModuleSpecifier,
+          );
+          const pattern = configuredSpecifier
+            .replace(/\*\*/g, '.*')
+            .replace(/\*/g, '[^/]*');
+          return new RegExp(pattern + '$').test(resolvedPath);
+        } catch {
+          // If path resolution fails, fall back to direct pattern matching
+          const pattern = configuredSpecifier
+            .replace(/\*\*/g, '.*')
+            .replace(/\*/g, '[^/]*');
+          return new RegExp('^' + pattern + '$').test(actualModuleSpecifier);
+        }
+      }
+
+      // For package imports, direct pattern matching
+      const pattern = configuredSpecifier
+        .replace(/\*\*/g, '.*')
+        .replace(/\*/g, '[^/]*');
+      return new RegExp('^' + pattern + '$').test(actualModuleSpecifier);
+    }
+
+    // Regex pattern (if starts with ^)
+    if (configuredSpecifier.startsWith('^')) {
+      try {
+        return new RegExp(configuredSpecifier).test(actualModuleSpecifier);
+      } catch {
+        // If regex is invalid, no match
+        return false;
+      }
+    }
+
+    return false;
   }
 
   /**

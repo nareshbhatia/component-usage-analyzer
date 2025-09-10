@@ -1,0 +1,129 @@
+{
+  "workspaces": [
+    {
+      "name": "apps",
+      "relativePath": "apps",
+      "packages": [
+        {
+          "name": "movie-magic-next",
+          "relativePath": "apps/movie-magic-next",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "ApplicationHeader.tsx",
+              "filePath": "apps/movie-magic-next/src/components/ApplicationHeader.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "index.tsx",
+              "filePath": "apps/movie-magic-next/src/pages/index.tsx",
+              "jsxElements": []
+            }
+          ]
+        },
+        {
+          "name": "movie-magic-vite",
+          "relativePath": "apps/movie-magic-vite",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "App.tsx",
+              "filePath": "apps/movie-magic-vite/src/App.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "ApplicationHeader.tsx",
+              "filePath": "apps/movie-magic-vite/src/components/ApplicationHeader.tsx",
+              "jsxElements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "packages",
+      "relativePath": "packages",
+      "packages": [
+        {
+          "name": "filter-panel",
+          "relativePath": "packages/filter-panel",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "FilterPanel.tsx",
+              "filePath": "packages/filter-panel/src/FilterPanel.tsx",
+              "jsxElements": []
+            }
+          ]
+        },
+        {
+          "name": "movie-list",
+          "relativePath": "packages/movie-list",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "MovieList.tsx",
+              "filePath": "packages/movie-list/src/MovieList.tsx",
+              "jsxElements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ui",
+      "relativePath": "lib/ui",
+      "packages": [
+        {
+          "name": "atoms",
+          "relativePath": "lib/ui/atoms",
+          "hasPackageJson": true,
+          "hasSrcDirectory": true,
+          "files": [
+            {
+              "name": "Button.tsx",
+              "filePath": "lib/ui/atoms/src/Button/Button.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "ButtonDeprecated.tsx",
+              "filePath": "lib/ui/atoms/src/ButtonDeprecated/ButtonDeprecated.tsx",
+              "jsxElements": []
+            },
+            {
+              "name": "KitchenSink.tsx",
+              "filePath": "lib/ui/atoms/src/KitchenSink/KitchenSink.tsx",
+              "jsxElements": [
+                {
+                  "line": 12,
+                  "column": 7,
+                  "code": "<ButtonRadix>Radix Button</ButtonRadix>"
+                }
+              ],
+              "importDeclaration": {
+                "line": 4,
+                "column": 1,
+                "code": "import { Button as ButtonRadix } from 'radix-ui/button';",
+                "alias": "ButtonRadix"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "analysisSummary": {
+    "workspaceCount": 3,
+    "packageCount": 5,
+    "fileCount": 9,
+    "fileWithInstanceCount": 1,
+    "instanceCount": 1,
+    "averageInstancesPerFile": 1,
+    "importDeclarationCount": 1,
+    "importDeclarationWithAliasCount": 1
+  }
+}

@@ -14,9 +14,12 @@ function generateMarkdownContent(
   analysisSummary: AnalysisSummary,
   config: Config,
 ): string {
-  const { componentName, repoPath, excludePaths, fileExtensions } = config;
+  const { repoPath, excludePaths, fileExtensions } = config;
   const { fileWithInstanceCount, instanceCount, averageInstancesPerFile } =
     analysisSummary;
+
+  // Get component name for title
+  const componentName = config.component.name;
 
   let content = `# Component Usage Analysis: ${componentName}\n\n`;
 

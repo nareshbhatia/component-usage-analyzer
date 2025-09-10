@@ -1,0 +1,13 @@
+{
+  "repoPath": "./sample-repo",
+  "workspacePaths": ["apps", "packages", "lib/ui"],
+  "excludePaths": ["node_modules", "dist", "build"],
+  "fileExtensions": [".jsx", ".tsx"],
+  "component": {
+    "name": "Button",
+    "moduleSpecifiers": ["radix-ui/button"]
+  },
+  "jsonOutputPath": "./usage-analysis/results-button-radix-ui.json",
+  "mdOutputPath": "./usage-analysis/analysis-button-radix-ui.md",
+  "verbose": true
+}

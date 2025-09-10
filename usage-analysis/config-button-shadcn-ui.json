@@ -1,0 +1,13 @@
+{
+  "repoPath": "./sample-repo",
+  "workspacePaths": ["apps", "packages", "lib/ui"],
+  "excludePaths": ["node_modules", "dist", "build"],
+  "fileExtensions": [".jsx", ".tsx"],
+  "component": {
+    "name": "Button",
+    "moduleSpecifiers": ["shadcn-ui"]
+  },
+  "jsonOutputPath": "./usage-analysis/results-button-shadcn-ui.json",
+  "mdOutputPath": "./usage-analysis/analysis-button-shadcn-ui.md",
+  "verbose": true
+}

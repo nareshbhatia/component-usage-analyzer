@@ -59,21 +59,6 @@
                 "column": 1,
                 "code": "import { Button } from '@sample/ui';"
               }
-            },
-            {
-              "name": "vite.config.d.ts",
-              "filePath": "apps/movie-magic-vite/vite.config.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "vite.config.js",
-              "filePath": "apps/movie-magic-vite/vite.config.js",
-              "jsxElements": []
-            },
-            {
-              "name": "vite.config.ts",
-              "filePath": "apps/movie-magic-vite/vite.config.ts",
-              "jsxElements": []
             }
           ]
         }
@@ -92,21 +77,6 @@
             {
               "name": "FilterPanel.tsx",
               "filePath": "packages/filter-panel/src/FilterPanel.tsx",
-              "jsxElements": []
-            },
-            {
-              "name": "index.d.ts",
-              "filePath": "packages/filter-panel/src/index.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "index.js",
-              "filePath": "packages/filter-panel/src/index.js",
-              "jsxElements": []
-            },
-            {
-              "name": "index.ts",
-              "filePath": "packages/filter-panel/src/index.ts",
               "jsxElements": []
             }
           ]
@@ -132,21 +102,6 @@
                 "column": 1,
                 "code": "import { Button } from '@sample/ui';"
               }
-            },
-            {
-              "name": "index.d.ts",
-              "filePath": "packages/movie-list/src/index.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "index.js",
-              "filePath": "packages/movie-list/src/index.js",
-              "jsxElements": []
-            },
-            {
-              "name": "index.ts",
-              "filePath": "packages/movie-list/src/index.ts",
-              "jsxElements": []
             }
           ]
         }
@@ -164,28 +119,30 @@
           "files": [
             {
               "name": "Button.tsx",
-              "filePath": "lib/ui/atoms/src/Button.tsx",
+              "filePath": "lib/ui/atoms/src/Button/Button.tsx",
               "jsxElements": []
             },
             {
               "name": "ButtonDeprecated.tsx",
-              "filePath": "lib/ui/atoms/src/ButtonDeprecated.tsx",
+              "filePath": "lib/ui/atoms/src/ButtonDeprecated/ButtonDeprecated.tsx",
               "jsxElements": []
             },
             {
-              "name": "index.d.ts",
-              "filePath": "lib/ui/atoms/src/index.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "index.js",
-              "filePath": "lib/ui/atoms/src/index.js",
-              "jsxElements": []
-            },
-            {
-              "name": "index.ts",
-              "filePath": "lib/ui/atoms/src/index.ts",
-              "jsxElements": []
+              "name": "KitchenSink.tsx",
+              "filePath": "lib/ui/atoms/src/KitchenSink/KitchenSink.tsx",
+              "jsxElements": [
+                {
+                  "line": 10,
+                  "column": 7,
+                  "code": "<MyButton>My Button</MyButton>"
+                }
+              ],
+              "importDeclaration": {
+                "line": 2,
+                "column": 1,
+                "code": "import { Button as MyButton } from '../Button/Button';",
+                "alias": "MyButton"
+              }
             }
           ]
         }
@@ -195,11 +152,11 @@
   "analysisSummary": {
     "workspaceCount": 3,
     "packageCount": 5,
-    "fileCount": 20,
-    "fileWithInstanceCount": 3,
-    "instanceCount": 3,
+    "fileCount": 9,
+    "fileWithInstanceCount": 4,
+    "instanceCount": 4,
     "averageInstancesPerFile": 1,
-    "importDeclarationCount": 3,
-    "importDeclarationWithAliasCount": 0
+    "importDeclarationCount": 4,
+    "importDeclarationWithAliasCount": 1
   }
 }

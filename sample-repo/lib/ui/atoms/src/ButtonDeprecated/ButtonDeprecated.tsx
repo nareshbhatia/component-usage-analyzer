@@ -7,9 +7,6 @@ interface ButtonDeprecatedProps {
   type?: 'button' | 'reset' | 'submit';
 }
 
-/**
- * @deprecated This component is deprecated. Please use Button instead.
- */
 export const ButtonDeprecated: React.FC<ButtonDeprecatedProps> = ({
   children,
   onClick,

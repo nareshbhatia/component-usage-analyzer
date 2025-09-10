@@ -37,21 +37,6 @@
               "name": "ApplicationHeader.tsx",
               "filePath": "apps/movie-magic-vite/src/components/ApplicationHeader.tsx",
               "jsxElements": []
-            },
-            {
-              "name": "vite.config.d.ts",
-              "filePath": "apps/movie-magic-vite/vite.config.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "vite.config.js",
-              "filePath": "apps/movie-magic-vite/vite.config.js",
-              "jsxElements": []
-            },
-            {
-              "name": "vite.config.ts",
-              "filePath": "apps/movie-magic-vite/vite.config.ts",
-              "jsxElements": []
             }
           ]
         }
@@ -70,38 +55,6 @@
             {
               "name": "FilterPanel.tsx",
               "filePath": "packages/filter-panel/src/FilterPanel.tsx",
-              "jsxElements": [
-                {
-                  "line": 98,
-                  "column": 11,
-                  "code": "<Button onClick={handleClear}>Clear</Button>"
-                },
-                {
-                  "line": 99,
-                  "column": 11,
-                  "code": "<Button onClick={handleApply}>Apply Filters</Button>"
-                }
-              ],
-              "importDeclaration": {
-                "line": 1,
-                "column": 1,
-                "code": "import { ButtonDeprecated as Button } from '@sample/ui';",
-                "alias": "Button"
-              }
-            },
-            {
-              "name": "index.d.ts",
-              "filePath": "packages/filter-panel/src/index.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "index.js",
-              "filePath": "packages/filter-panel/src/index.js",
-              "jsxElements": []
-            },
-            {
-              "name": "index.ts",
-              "filePath": "packages/filter-panel/src/index.ts",
               "jsxElements": []
             }
           ]
@@ -115,21 +68,6 @@
             {
               "name": "MovieList.tsx",
               "filePath": "packages/movie-list/src/MovieList.tsx",
-              "jsxElements": []
-            },
-            {
-              "name": "index.d.ts",
-              "filePath": "packages/movie-list/src/index.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "index.js",
-              "filePath": "packages/movie-list/src/index.js",
-              "jsxElements": []
-            },
-            {
-              "name": "index.ts",
-              "filePath": "packages/movie-list/src/index.ts",
               "jsxElements": []
             }
           ]
@@ -148,28 +86,29 @@
           "files": [
             {
               "name": "Button.tsx",
-              "filePath": "lib/ui/atoms/src/Button.tsx",
+              "filePath": "lib/ui/atoms/src/Button/Button.tsx",
               "jsxElements": []
             },
             {
               "name": "ButtonDeprecated.tsx",
-              "filePath": "lib/ui/atoms/src/ButtonDeprecated.tsx",
+              "filePath": "lib/ui/atoms/src/ButtonDeprecated/ButtonDeprecated.tsx",
               "jsxElements": []
             },
             {
-              "name": "index.d.ts",
-              "filePath": "lib/ui/atoms/src/index.d.ts",
-              "jsxElements": []
-            },
-            {
-              "name": "index.js",
-              "filePath": "lib/ui/atoms/src/index.js",
-              "jsxElements": []
-            },
-            {
-              "name": "index.ts",
-              "filePath": "lib/ui/atoms/src/index.ts",
-              "jsxElements": []
+              "name": "KitchenSink.tsx",
+              "filePath": "lib/ui/atoms/src/KitchenSink/KitchenSink.tsx",
+              "jsxElements": [
+                {
+                  "line": 9,
+                  "column": 7,
+                  "code": "<Button>Shadcn Button</Button>"
+                }
+              ],
+              "importDeclaration": {
+                "line": 1,
+                "column": 1,
+                "code": "import { Button } from 'shadcn-ui';"
+              }
             }
           ]
         }
@@ -179,11 +118,11 @@
   "analysisSummary": {
     "workspaceCount": 3,
     "packageCount": 5,
-    "fileCount": 20,
+    "fileCount": 9,
     "fileWithInstanceCount": 1,
-    "instanceCount": 2,
-    "averageInstancesPerFile": 2,
+    "instanceCount": 1,
+    "averageInstancesPerFile": 1,
     "importDeclarationCount": 1,
-    "importDeclarationWithAliasCount": 1
+    "importDeclarationWithAliasCount": 0
   }
 }

@@ -71,7 +71,7 @@ export class ConfigLoader {
       'workspacePaths',
       'excludePaths',
       'fileExtensions',
-      'componentName',
+      'component',
       'jsonOutputPath',
       'mdOutputPath',
       'verbose',
@@ -85,6 +85,11 @@ export class ConfigLoader {
       ) {
         errors.push(`Missing required field: ${field}`);
       }
+    }
+
+    // Check that component is provided
+    if (!config.component) {
+      errors.push('"component" must be provided');
     }
 
     // Validate specific field types and values
@@ -118,12 +123,25 @@ export class ConfigLoader {
       errors.push('fileExtensions must be a non-empty array');
     }
 
-    if (
-      config.componentName !== undefined &&
-      config.componentName !== null &&
-      typeof config.componentName !== 'string'
-    ) {
-      errors.push('componentName must be a string');
+    // Validate component object
+    if (config.component) {
+      if (!config.component.name || typeof config.component.name !== 'string') {
+        errors.push('component.name must be a non-empty string');
+      }
+      if (
+        !Array.isArray(config.component.moduleSpecifiers) ||
+        config.component.moduleSpecifiers.length === 0
+      ) {
+        errors.push('component.moduleSpecifiers must be a non-empty array');
+      } else {
+        config.component.moduleSpecifiers.forEach((spec, specIndex) => {
+          if (typeof spec !== 'string' || spec.trim() === '') {
+            errors.push(
+              `component.moduleSpecifiers[${specIndex}] must be a non-empty string`,
+            );
+          }
+        });
+      }
     }
 
     if (
@@ -168,7 +186,10 @@ export class ConfigLoader {
       workspacePaths: ['apps', 'packages'],
       excludePaths: ['node_modules', 'dist', 'build'],
       fileExtensions: ['.js', '.jsx', '.ts', '.tsx'],
-      componentName: 'Button',
+      component: {
+        name: 'Button',
+        moduleSpecifiers: ['@sample/ui', '**/Button'],
+      },
       jsonOutputPath: './compu-results.json',
       mdOutputPath: './compu-results.md',
       verbose: false,

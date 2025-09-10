@@ -1,4 +1,15 @@
 /**
+ * Configuration for the component to analyze
+ */
+export interface ComponentConfig {
+  /** Component name to search for */
+  name: string;
+
+  /** Array of module specifiers (exact strings or patterns) where this component can be imported from */
+  moduleSpecifiers: string[];
+}
+
+/**
  * Configuration for the component usage analyzer
  */
 export interface Config {
@@ -14,8 +25,8 @@ export interface Config {
   /** Array of file extensions to analyze (e.g., [".js", ".jsx", ".ts", ".tsx"]) */
   fileExtensions: string[];
 
-  /** Name of the React component to analyze usage for */
-  componentName: string;
+  /** Component to analyze */
+  component: ComponentConfig;
 
   /** Output path for the analysis results JSON file */
   jsonOutputPath: string;

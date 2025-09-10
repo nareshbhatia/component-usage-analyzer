@@ -1,0 +1,13 @@
+{
+  "repoPath": "./sample-repo",
+  "workspacePaths": ["apps", "packages", "lib/ui"],
+  "excludePaths": ["node_modules", "dist", "build"],
+  "fileExtensions": [".jsx", ".tsx"],
+  "component": {
+    "name": "Button",
+    "moduleSpecifiers": ["@sample/ui", "**/Button"]
+  },
+  "jsonOutputPath": "./usage-analysis/results-button.json",
+  "mdOutputPath": "./usage-analysis/analysis-button.md",
+  "verbose": true
+}

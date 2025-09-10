@@ -10,12 +10,12 @@ export function printHelp(): void {
   
   Options:
     --config=<path>          Specify config file path (default: compu-config.json)
-    --create-config-example  Create an example configuration file
+    --create-config  Create an example configuration file
     --help, -h               Show this help message
   
   Examples:
     compu --config=my-compu-config.json
-    compu --create-config-example
+    compu --create-config
     compu --help
   `);
 }

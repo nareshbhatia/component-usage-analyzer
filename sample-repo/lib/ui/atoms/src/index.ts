@@ -1,2 +1,2 @@
-export { Button } from './Button';
-export { ButtonDeprecated } from './ButtonDeprecated';
+export { Button } from './Button/Button';
+export { ButtonDeprecated } from './ButtonDeprecated/ButtonDeprecated';

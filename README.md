@@ -96,7 +96,7 @@ Now open a shell and execute the following commands.
 cd ~/projects/movie-magic
 
 # Create a starter config file
-compu --create-config-example
+compu --create-config
 
 # This will create a starter config file called compu-config.json in your repo's root.
 # Edit the config file to match your repo structure and the component you want to analyze.
