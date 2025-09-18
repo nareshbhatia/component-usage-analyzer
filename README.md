@@ -61,7 +61,10 @@ configuration file for the above structure:
   "workspacePaths": ["apps", "packages"],
   "excludePaths": ["node_modules", "dist", "build"],
   "fileExtensions": [".js", ".jsx", ".ts", ".tsx"],
-  "componentName": "Button",
+  "component": {
+    "name": "Button",
+    "moduleSpecifiers": ["@sample/ui", "**/Button"]
+  },
   "jsonOutputPath": "./compu-results.json",
   "mdOutputPath": "./compu-results.md",
   "verbose": false
