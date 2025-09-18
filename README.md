@@ -79,7 +79,8 @@ Here's an explanation of each configuration parameter:
 - `excludePaths`: Array of paths to exclude from search, relative to each
   package
 - `fileExtensions`: Array of file extensions to search
-- `componentName`: Name of the component to search
+- `component.name`: Name of the component to search
+- `component.moduleSpecifiers`: Modules from where component can be imported
 - `jsonOutputPath`: Path to write the JSON output file
 - `mdOutputPath`: Path to write the markdown output file
 - `verbose`: Whether to write verbose output
